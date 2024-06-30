@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Inicio</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .bg-cover {
+            background-image: url('img/fondo.jpg'); /* Cambia esta ruta a la de tu imagen */
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-cover flex flex-col h-screen">
+        <header class="flex justify-between items-center p-6 bg-opacity-50 bg-black text-white">
+            <h1 class="text-3xl font-bold">Registro de personal</h1>
+            <div>
+                <a href="registro.html" class="bg-[#303030] hover:bg-green-700 text-white font-bold py-2 px-4 rounded mr-2">Registrar Usuario</a>
+                <a href="inicio.html" class="bg-[#303030] hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Iniciar Sesión</a>
+            </div>
+        </header>
+    </div>
+</body>
+</html>

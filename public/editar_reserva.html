@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Reserva</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-900">
+    <div class="container mx-auto p-8">
+        <h1 class="text-3xl font-bold mb-4">Editar Reserva</h1>
+        <form id="editar-reserva-form">
+            <input type="hidden" id="ID_reserva" name="ID_reserva">
+            <div class="mb-4">
+                <label class="block text-gray-700">Descripción</label>
+                <input type="text" id="Descripcion" name="Descripcion" class="w-full p-2 border border-gray-300 rounded-md">
+            </div>
+            <div class="mb-4">
+                <label class="block text-gray-700">Usuario</label>
+                <input type="text" id="ID_usuario" name="ID_usuario" class="w-full p-2 border border-gray-300 rounded-md">
+            </div>
+            <div class="mb-4">
+                <label class="block text-gray-700">Laboratorio</label>
+                <input type="text" id="ID_laboratorio" name="ID_laboratorio" class="w-full p-2 border border-gray-300 rounded-md">
+            </div>
+            <button type="submit" class="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-md">Guardar Cambios</button>
+        </form>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const idReserva = urlParams.get('id');
+
+            // Petición AJAX para obtener la reserva a editar
+            fetch(`php/obtener_reserva.php?id=${idReserva}`)
+                .then(response => response.json())
+                .then(reserva => {
+                    document.getElementById('ID_reserva').value = reserva.ID_reserva;
+                    document.getElementById('Descripcion').value = reserva.Descripcion;
+                    document.getElementById('ID_usuario').value = reserva.ID_usuario;
+                    document.getElementById('ID_laboratorio').value = reserva.ID_laboratorio;
+                })
+                .catch(error => {
+                    console.error('Error al obtener la reserva:', error);
+                });
+
+            // Manejar la sumisión del formulario
+            document.getElementById('editar-reserva-form').addEventListener('submit', function(event) {
+                event.preventDefault();
+                const formData = new FormData(this);
+
+                fetch('php/editar_reserva.php', {
+                    method: 'POST',
+                    body: new URLSearchParams(formData)
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        alert('Reserva actualizada exitosamente.');
+                        window.location.href = 'mostrar_reservas.html'; 
+                    } else {
+                        alert('Error al actualizar la reserva.');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error al actualizar la reserva:', error);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+

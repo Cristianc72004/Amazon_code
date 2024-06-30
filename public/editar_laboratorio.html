@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Editar Laboratorio</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-900">
+  <main class="container mx-auto mt-8">
+    <h2 class="text-2xl font-bold mb-4 text-gray-100 ">Editar Laboratorio</h2>
+    <form action="php/editar_laboratorio.php" method="POST">
+      <input type="hidden" name="id" value="" id="lab-id">
+      <div class="mb-4">
+        <label for="nombre" class="block text-gray-100">Nombre del Laboratorio</label>
+        <input type="text" name="Nombre_laboratorio" id="nombre" class="w-full px-4 py-2 border rounded">
+      </div>
+      <div class="mb-4">
+        <label for="horario" class="block text-gray-100">Horario</label>
+        <input type="text" name="horario" id="horario" class="w-full px-4 py-2 border rounded">
+      </div>
+      <div class="mb-4">
+        <label for="capacidad" class="block text-gray-100">Capacidad</label>
+        <input type="text" name="Capacidad" id="capacidad" class="w-full px-4 py-2 border rounded">
+      </div>
+      <div class="mb-4">
+        <label for="n_equipos" class="block text-gray-100">Número de Equipos</label>
+        <input type="text" name="N_Equipos" id="n_equipos" class="w-full px-4 py-2 border rounded">
+      </div>
+      <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Guardar Cambios</button>
+    </form>
+  </main>
+  <script>
+    // Obtener ID del laboratorio desde la URL y rellenar el formulario con los datos actuales
+    const params = new URLSearchParams(window.location.search);
+    const labId = params.get('id');
+    document.getElementById('lab-id').value = labId;
+
+    // Aquí puedes añadir más lógica para obtener y mostrar los datos del laboratorio en el formulario
+  </script>
+</body>
+</html>

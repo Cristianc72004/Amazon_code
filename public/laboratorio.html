@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Listado de Laboratorios</title>
+  <link href="../public/css/tailwind.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-acsHn7DfdL9R2xRgldOd6e/7fuM5sd4qPUd6QyP3/C6z12ddPO2L6pJXik1nDSfmsbLk6q8A9FJ5MvBuUsP2Wg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body class="bg-white text-black dark:bg-gray-900 dark:text-white">
+  <!-- Encabezado -->
+  <header class="bg-gray-900 p-4 text-white">
+    <div class="container mx-auto flex justify-between items-center">
+      <h1 class="text-xl font-bold">Gestion de Laboratorios</h1>
+      <nav>
+        <a href="reportes.html" class="text-white hover:text-gray-300 mx-6 font-bold">
+          <i class="fas fa-box-open"></i> Reportes
+        </a>
+        <a href="mostrar_reservas.html" class="text-white hover:text-gray-300 mx-6 font-bold">
+          <i class="fas fa-envelope"></i> Historial de Reservas
+        </a>
+        <a href="index.html" class="text-white hover:text-gray-300 mx-6 font-bold">
+          <i class="fas fa-home"></i> Cerrar Sesión
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Contenido principal -->
+  <main class="container mx-auto mt-8">
+    <h2 class="text-2xl font-bold mb-4">Lista de Laboratorios Registrados</h2>
+
+    <!-- Campo de búsqueda -->
+    <div class="mb-4">
+      <input type="text" id="search" class="w-full p-2 border rounded-md" placeholder="Buscar laboratorio...">
+    </div>
+
+    <!-- Botón para agregar nuevo laboratorio -->
+    <div class="mb-4">
+      <button onclick="window.location.href='registro_laboratorio.html'" class="bg-green-500 text-white px-4 py-2 rounded-md shadow-sm hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 font-bold">
+        Agregar Nuevo Laboratorio
+      </button>
+    </div>
+
+    <div id="lista-laboratorios" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <!-- Aquí se mostrarán los laboratorios dinámicamente -->
+    </div>
+  </main>
+
+  <!-- Botón para cambiar el modo claro/oscuro -->
+  <button id="toggle-dark-mode" class="fixed bottom-4 right-4 bg-gray-700 text-white px-4 py-2 rounded-full shadow-lg hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-700 font-bold">
+    Modo Claro/Oscuro
+  </button>
+
+  <!-- Script JavaScript para obtener y mostrar los datos -->
+  <script src="js/acciones_laboratorios.js"></script>
+  <script>
+    // Funcionalidad de búsqueda en tiempo real
+    document.getElementById('search').addEventListener('input', function() {
+      const searchQuery = this.value.toLowerCase();
+      const labs = document.querySelectorAll('#lista-laboratorios > div');
+      labs.forEach(lab => {
+        const labName = lab.textContent.toLowerCase();
+        if (labName.includes(searchQuery)) {
+          lab.style.display = 'block';
+        } else {
+          lab.style.display = 'none';
+        }
+      });
+    });
+
+    // Funcionalidad de modo claro/oscuro
+    const toggleDarkMode = document.getElementById('toggle-dark-mode');
+    toggleDarkMode.addEventListener('click', () => {
+      document.body.classList.toggle('dark');
+    });
+  </script>
+</body>
+</html>

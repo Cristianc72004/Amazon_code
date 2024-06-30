@@ -1,0 +1,45 @@
+ <!-- contraseña.html -->
+ <!DOCTYPE html>
+ <html lang="es">
+ <head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Restablecer Contraseña</title>
+   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+ </head>
+ <body class="bg-gray-900 font-sans leading-normal tracking-normal">
+ 
+   <!-- Contenido Principal -->
+   <main class="flex items-center justify-center min-h-screen">
+     <div class="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
+       <h2 class="text-2xl font-bold mb-6 text-center text-gray-800">Restablecer Contraseña</h2>
+       
+       <!-- Formulario para restablecer contraseña -->
+       <form action="../public/php/reset-password.php" method="POST" class="space-y-6">
+         <div>
+             <label for="email" class="block text-sm font-medium text-gray-700">Numero de telefono</label>
+             <input type="text" id="numero_telefono" name="numero_telefono" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+           </div>
+ 
+         <div>
+           <label for="new_password" class="block text-sm font-medium text-gray-700">Nueva Contraseña</label>
+           <input type="password" id="new_password" name="new_password" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+         </div>
+         
+         <div>
+           <label for="confirm_new_password" class="block text-sm font-medium text-gray-700">Confirmar Nueva Contraseña</label>
+           <input type="password" id="confirm_new_password" name="confirm_new_password" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+         </div>
+         
+         <!-- Botón de Enviar -->
+         <div>
+           <button type="submit" class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-green-500 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500">Enviar</button>
+         </div>
+       </form>
+     </div>
+   </main>
+ 
+ 
+ </body>
+ </html>
+ 

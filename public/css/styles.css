@@ -1,0 +1,96 @@
+/* styles.css */
+
+/* Paleta Principal */
+:root {
+    --primary-color: #3f51b5;  /* Azul índigo */
+    --secondary-color: #ff9800; /* Naranja */
+    --background-color: #f5f5f5; /* Gris claro */
+    --text-color: #333333; /* Negro oscuro */
+    --alert-color: #f44336; /* Rojo */
+}
+
+/* Paleta Daltonismo */
+body.daltonism-mode {
+    --primary-color: #336699;  /* Azul */
+    --secondary-color: #ff9933; /* Naranja */
+    --background-color: #f0f0f0; /* Gris claro */
+    --text-color: #333333; /* Negro oscuro */
+    --alert-color: #cc3333; /* Rojo más oscuro */
+}
+
+/* Tipografía */
+body {
+    font-family: 'Roboto', sans-serif;
+    color: var(--text-color);
+    background-color: var(--background-color);
+    margin: 0;
+    padding: 0;
+}
+
+/* Tamaños */
+h1 {
+    font-size: 32px;
+}
+
+h2 {
+    font-size: 24px;
+}
+
+p, label, input, textarea, button {
+    font-size: 16px;
+}
+
+.small-text {
+    font-size: 14px;
+}
+
+/* Botones y Componentes */
+button, .button {
+    color: white;
+    background-color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover, .button:hover {
+    background-color: var(--primary-color-dark); /* Se define en el hover */
+}
+
+/* Navegación */
+nav {
+    background-color: black;
+    color: var(--text-color);
+}
+
+nav a {
+    color: var(--text-color);
+}
+
+nav a:hover {
+    color: white;
+}
+
+/* Formularios */
+input, textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Sección de página */
+.main-content {
+    padding: 16px;
+}
+
+/* Iconografía */
+.icon {
+    fill: var(--text-color);
+}
+
+.icon:hover {
+    fill: var(--primary-color);
+}
